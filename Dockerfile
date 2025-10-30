@@ -1,6 +1,6 @@
-FROM python:3.11-bullseye as spark-base
+FROM python:3.11-trixie as spark-base
 
-ARG SPARK_VERSION=3.4.0
+ARG SPARK_VERSION=4.0.1
 
 # Install tools required by the OS
 RUN apt-get update && \
@@ -10,9 +10,8 @@ RUN apt-get update && \
       vim \
       unzip \
       rsync \
-      openjdk-11-jdk \
+      openjdk-21-jdk \
       build-essential \
-      software-properties-common \
       ssh && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
